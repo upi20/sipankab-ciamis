@@ -20,19 +20,14 @@ class GantiPasswordController extends Controller
     {
         $email = $_SESSION['auth']['email'];
         $password = post('current_password');
-        $kode = klinik_kode();
 
         // amankan data yang diambil
         $email = is_null($email) ? '' : mrq($email);
         $password = is_null($password) ? '' : mrq($password);
 
-        $sql = "SELECT user.user_id, user.password from t_user as user
-        join t_person as person on user.person_id = person.person_id
-        join t_dokter as dokter on dokter.person_id = person.person_id
-        join p_klinik_dokter as p_dokter on dokter.dokter_id = p_dokter.dokter_id
-        where p_dokter.klinik_kode = '$kode' and user.email = '$email'";
+        $sql = "SELECT * from admin where email = '$email'";
 
-        $cek_email = $this->model->query_one($sql);
+        $cek_email = query_one($sql);
 
         if (is_null($cek_email)) {
             $this->output_json(['message' => 'User Tidak ditemukan'], 400);
@@ -42,10 +37,10 @@ class GantiPasswordController extends Controller
             // ganti password
             $new_password = post('new_password');
             $new_password = password_hash($new_password, PASSWORD_DEFAULT);
-            $user_id = $cek_email['user_id'];
+            $id = $cek_email['id'];
 
             try {
-                query_build("UPDATE `t_user` SET `password` = '$new_password' WHERE `user_id` = '$user_id'");
+                query_build("UPDATE `admin` SET `password` = '$new_password' WHERE `id` = '$id'");
             } catch (\Exception  $e) {
                 $this->output_json(['message' => 'Server Error', 'error_message' => $e->getMessage()], 500);
             }
