@@ -40,6 +40,16 @@ route_post("$route.update", $controller, 'update');
 route_post("$route.delete", $controller, 'delete');
 route_get("$route.find", $controller, 'find');
 
+// calon
+$route = 'calon';
+$controller = 'CalonController';
+route_get($route, $controller, 'index');
+route_post($route, $controller, 'datatable');
+route_post("$route.insert", $controller, 'insert');
+route_post("$route.update", $controller, 'update');
+route_post("$route.delete", $controller, 'delete');
+route_get("$route.find", $controller, 'find');
+
 
 // jika rutenya tidak terdaftar
 $route = '';

@@ -44,6 +44,7 @@ INSERT INTO `admin` (`id`, `nama`, `email`, `password`) VALUES
 CREATE TABLE `calon` (
   `id` int(11) NOT NULL,
   `kecamatan_id` int(11) DEFAULT NULL,
+  `nama` varchar(255) DEFAULT NULL,
   `nomor_pendaftaran` varchar(255) DEFAULT NULL,
   `jenis_kelamin` varchar(255) DEFAULT NULL,
   `alamat` text DEFAULT NULL,
