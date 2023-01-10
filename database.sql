@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 10, 2023 at 04:54 PM
+-- Generation Time: Jan 10, 2023 at 06:52 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -33,7 +33,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `nama`, `email`, `password`) VALUES
-(1, 'Administrator', 'admin@mail.com', '$2y$10$6dbE/5IvTguw59mMaSv48ObfWyY6OKk9j1Q4pnkCbN0BGf34sPQgi');
+(1, 'Administrator', 'admin@mail.com', '$2y$10$/hjs/k7jUC7fJxOs4x8b5Oo2.JMSaHBumcgHl8H.LdMrvjoEIrCye');
 
 -- --------------------------------------------------------
 
@@ -50,6 +50,13 @@ CREATE TABLE `calon` (
   `alamat` text DEFAULT NULL,
   `nomor_telepon` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `calon`
+--
+
+INSERT INTO `calon` (`id`, `kecamatan_id`, `nama`, `nomor_pendaftaran`, `jenis_kelamin`, `alamat`, `nomor_telepon`) VALUES
+(1, 2, 'Isep Lutpi Nur', '1', 'LAKI-LAKI', 'Cianjur', '+6285798132505');
 
 -- --------------------------------------------------------
 
@@ -75,6 +82,13 @@ CREATE TABLE `kecamatan` (
   `nama` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `kecamatan`
+--
+
+INSERT INTO `kecamatan` (`id`, `nama`) VALUES
+(2, 'Banjaranyar');
+
 -- --------------------------------------------------------
 
 --
@@ -84,8 +98,15 @@ CREATE TABLE `kecamatan` (
 CREATE TABLE `tahapan` (
   `id` int(11) NOT NULL,
   `urutan` int(11) DEFAULT NULL,
-  `nama` varchar(11) DEFAULT NULL
+  `nama` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tahapan`
+--
+
+INSERT INTO `tahapan` (`id`, `urutan`, `nama`) VALUES
+(1, 1, 'Administrasi (Kelengkapan Berkas)');
 
 -- --------------------------------------------------------
 
@@ -162,7 +183,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `calon`
 --
 ALTER TABLE `calon`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `calon_tahapan_nilai`
@@ -174,13 +195,13 @@ ALTER TABLE `calon_tahapan_nilai`
 -- AUTO_INCREMENT for table `kecamatan`
 --
 ALTER TABLE `kecamatan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tahapan`
 --
 ALTER TABLE `tahapan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tahapan_nilai`

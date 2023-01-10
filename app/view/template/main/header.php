@@ -195,17 +195,14 @@
                             </li>
 
 
-
-
-                            <!-- <li class="slide">
-                                <a class="side-menu__item <?= route_active_class('registrasi', 'active') ?>" data-bs-toggle="slide" href="<?= route('registrasi') ?>">
+                            <li class="slide">
+                                <a class="side-menu__item <?= route_active_class('tahapan', 'active') ?>  <?= route_active_class('tahapan.nilai', 'active') ?>" data-bs-toggle="slide" href="<?= route('tahapan') ?>">
                                     <i class="side-menu__icon fas fa-edit"></i>
-                                    <span class="side-menu__label">Registrasi</span>
+                                    <span class="side-menu__label">Tahapan</span>
                                 </a>
                             </li>
 
-
-
+                            <!-- 
                             <li class="slide">
                                 <a class="side-menu__item <?= route_active_class('display', 'active') ?>" data-bs-toggle="slide" href="<?= route('display') ?>">
                                     <i class="side-menu__icon fas fa-tv"></i>
