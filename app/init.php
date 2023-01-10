@@ -17,3 +17,22 @@ route_post($route, $controller, 'doLogin');
 route_get("$route.logout", $controller, 'logout');
 
 cekLogin();
+
+// ganti password
+$route = 'ganti_password';
+$controller = 'GantiPasswordController';
+route_get($route, $controller, 'index');
+route_post($route, $controller, 'simpan');
+
+// profile
+$route = 'profile';
+$controller = 'ProfileController';
+route_get($route, $controller, 'index');
+route_post($route, $controller, 'simpan');
+
+
+// jika rutenya tidak terdaftar
+$route = '';
+$controller = 'DefaultController';
+route_get($route, $controller, 'index'); // default controller runte nya kosong = ''
+route_post($route, $controller, 'page_not_found'); // default controller runte nya kosong = ''

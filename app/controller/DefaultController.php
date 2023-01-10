@@ -5,8 +5,8 @@ class DefaultController extends Controller
     {
         // get session
         $this->template = 'main';
-        $this->title = 'Dashboard';
-        $this->render('dashboard');
+        $this->title = 'Home';
+        $this->render('home');
     }
 
     public function not_found()
