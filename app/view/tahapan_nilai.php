@@ -1,10 +1,10 @@
 <div class="page-header">
-    <h1 class="page-title">Tahapan Penilaian</h1>
+    <h1 class="page-title">Nilai Tahapan <?= $tahapan['nama'] ?></h1>
 </div>
 
 <div class="card">
     <div class="card-header d-md-flex flex-row justify-content-between">
-        <h3 class="card-title">Daftar Tahapan Penilaian</h3>
+        <h3 class="card-title">Daftar Nilai</h3>
         <div>
             <button class="btn btn-primary btn-sm" id="btn-tambah"><i class="fas fa-plus me-1"></i>Tambah</button>
         </div>
@@ -13,10 +13,16 @@
         <table class="table table-hover" id="table_main">
             <thead>
                 <tr>
-                    <th>No</th>
-                    <th>Urutan</th>
-                    <th>Nama</th>
-                    <th>Action</th>
+                    <th rowspan="2" class="align-middle">No</th>
+                    <th rowspan="2" class="align-middle">Urutan</th>
+                    <th rowspan="2" class="align-middle">Nilai</th>
+                    <th rowspan="2" class="align-middle">Nama</th>
+                    <th colspan="2" class="align-middle text-center">Nilai</th>
+                    <th rowspan="2" class="align-middle">Action</th>
+                </tr>
+                <tr>
+                    <th>Dari</th>
+                    <th>Sampai</th>
                 </tr>
             </thead>
             <tbody> </tbody>
@@ -36,6 +42,7 @@
             <div class="modal-body">
                 <form id="MainForm">
                     <input type="hidden" id="id" name="id">
+                    <input type="hidden" id="tahapan_id" name="tahapan_id" value="<?= $tahapan['id'] ?>">
 
                     <div class="row mb-3">
                         <label for="urutan" class="col-sm-2 col-form-label">Urutan</label>
@@ -44,9 +51,27 @@
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <label for="nama" class="col-sm-2 col-form-label">Nama</label>
+                        <label for="nilai" class="col-sm-2 col-form-label">Nilai</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" placeholder="Nama Tahapan" id="nama" name="nama" required>
+                            <input type="text" class="form-control" placeholder="Contoh: A,B,C" id="nilai" name="nilai" required>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="nilai_nama" class="col-sm-2 col-form-label">Nama</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" placeholder="Nama Tahapan" id="nilai_nama" name="nilai_nama" required>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="nilai_dari" class="col-sm-2 col-form-label">Nilai Dari</label>
+                        <div class="col-sm-10">
+                            <input type="number" min="0" class="form-control" placeholder="Nilai Dari" id="nilai_dari" name="nilai_dari" required>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="nilai_sampai" class="col-sm-2 col-form-label">Nilai Sampai</label>
+                        <div class="col-sm-10">
+                            <input type="number" min="0" class="form-control" placeholder="Nilai Sampai" id="nilai_sampai" name="nilai_sampai" required>
                         </div>
                     </div>
                 </form>
@@ -79,7 +104,10 @@
             bAutoWidth: false,
             ajax: {
                 type: 'POST',
-                url: "<?= route('tahapan') ?>"
+                url: "<?= route('tahapan.nilai') ?>",
+                data: function(d) {
+                    d['filter[tahapan_id]'] = $('#tahapan_id').val();
+                }
             },
             columns: [{
                     data: null,
@@ -91,23 +119,32 @@
                     name: 'urutan'
                 },
                 {
-                    data: 'nama',
-                    name: 'nama'
+                    data: 'nilai',
+                    name: 'nilai'
+                },
+                {
+                    data: 'nilai_nama',
+                    name: 'nilai_nama'
+                },
+                {
+                    data: 'nilai_dari',
+                    name: 'nilai_dari'
+                },
+                {
+                    data: 'nilai_sampai',
+                    name: 'nilai_sampai'
                 },
                 {
                     data: 'id',
                     name: 'id',
                     render(data, type, full, meta) {
-                        const btn_nilai = `<a href="<?= route('tahapan.nilai') ?>&id=${data}" type="button" class="btn btn-rounded btn-success btn-sm me-1" title="Nilai dari tahapan">
-                                <i class="fas fa-clipboard-list"></i> Nilai
-                                </a>`;
                         const btn_update = `<button type="button" class="btn btn-rounded btn-primary btn-sm me-1" title="Edit Data" onClick="editFunc('${data}')">
                                 <i class="fas fa-edit"></i> Ubah
                                 </button>`;
                         const btn_delete = `<button type="button" class="btn btn-rounded btn-danger btn-sm me-1" title="Delete Data" onClick="deleteFunc('${data}')">
                                 <i class="fas fa-trash"></i> Hapus
                                 </button>`;
-                        return btn_nilai + btn_update + btn_delete;
+                        return btn_update + btn_delete;
                     },
                     orderable: false,
                     className: 'text-nowrap'
@@ -129,7 +166,7 @@
 
         $('#btn-tambah').click(() => {
             $('#ModalMain').modal('show');
-            $('#ModalMainLabel').text('Tambah Tahapan');
+            $('#ModalMainLabel').text('Tambah Nilai Tahapan');
             if (!form_is_edit) return false;
             reset_form();
             return true;
@@ -142,8 +179,8 @@
             var formData = new FormData(this);
             setBtnLoading('#btn-save', 'Simpan');
             const route = ($('#id').val() == '') ?
-                "<?= route('tahapan.insert') ?>" :
-                "<?= route('tahapan.update') ?>";
+                "<?= route('tahapan.nilai.insert') ?>" :
+                "<?= route('tahapan.nilai.update') ?>";
             $.ajax({
                 type: "POST",
                 url: route,
@@ -192,7 +229,7 @@
         $.LoadingOverlay("show");
         $.ajax({
             type: "GET",
-            url: `<?= route('tahapan.find') ?>`,
+            url: `<?= route('tahapan.nilai.find') ?>`,
             data: {
                 id
             },
@@ -210,12 +247,15 @@
 
                 // show modal
                 $('#ModalMain').modal('show');
-                $('#ModalMainLabel').html('Ubah Tahapan');
+                $('#ModalMainLabel').html('Ubah Nilai Tahapan');
 
                 // isi data tahapan
                 $('#id').val(tahapan.id);
-                $('#nama').val(tahapan.nama);
                 $('#urutan').val(tahapan.urutan);
+                $('#nilai').val(tahapan.nilai);
+                $('#nilai_nama').val(tahapan.nilai_nama);
+                $('#nilai_dari').val(tahapan.nilai_dari);
+                $('#nilai_sampai').val(tahapan.nilai_sampai);
 
                 form_is_edit = true;
             },
@@ -244,7 +284,7 @@
         }).then(function(result) {
             if (result.value) {
                 $.ajax({
-                    url: `<?= route('tahapan.delete') ?>`,
+                    url: `<?= route('tahapan.nilai.delete') ?>`,
                     type: 'POST',
                     data: {
                         id
