@@ -57,9 +57,9 @@
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <label for="nilai_nama" class="col-sm-2 col-form-label">Nama</label>
+                        <label for="nilai_nama" class="col-sm-2 col-form-label">Nama Nilai</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" placeholder="Nama Tahapan" id="nilai_nama" name="nilai_nama" required>
+                            <input type="text" class="form-control" placeholder="Contoh: Baik, Kurang, Sangat Kurang" id="nilai_nama" name="nilai_nama" required>
                         </div>
                     </div>
                     <div class="row mb-3">
