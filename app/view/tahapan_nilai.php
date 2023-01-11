@@ -6,6 +6,7 @@
     <div class="card-header d-md-flex flex-row justify-content-between">
         <h3 class="card-title">Daftar Nilai</h3>
         <div>
+            <a href="<?= route('tahapan') ?>" class="btn btn-success btn-sm"><i class="fas fa-arrow-left me-1"></i>Kembali</a>
             <button class="btn btn-primary btn-sm" id="btn-tambah"><i class="fas fa-plus me-1"></i>Tambah</button>
         </div>
     </div>

@@ -10,7 +10,7 @@
     <div class="container">
         <div class="row align-items-center flex-row-reverse">
             <div class="col-md-12 col-sm-12 text-center">
-                Copyright © <span id="year"></span> VidyaMedic
+                Copyright © <span id="year"></span> Vakrun Nisah
             </div>
         </div>
     </div>
