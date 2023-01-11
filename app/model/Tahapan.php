@@ -127,7 +127,7 @@ class Tahapan extends Model
         nilai_nama = $nilai_nama,
         nilai_dari = $nilai_dari,
         nilai_sampai = $nilai_sampai
-        WHERE id = '$id'");
+        WHERE id = $id");
         return [
             'code' => 200,
             'error' => false,
