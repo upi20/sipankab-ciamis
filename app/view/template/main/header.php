@@ -87,8 +87,8 @@
                                 <img src="{{ asset(settings()->get(set_admin('app.foto_light_landscape_mode'))) }}" class="header-brand-img desktop-logo" alt="logo">
                                 <img src="{{ asset(settings()->get(set_admin('app.foto_dark_landscape_mode'))) }}" class="header-brand-img light-logo1" alt="logo">
                             </a> -->
-                                <img src="<?= asset($setting['logo_landscape']) ?>" altSrc="<?= asset('assets/template/admin/logo.png') ?>" onerror="this.src = $(this).attr('altSrc')" class="header-brand-img desktop-logo" style="max-height: 30px;" alt="logo">
-                                <img src="<?= asset($setting['logo_white_landscape']) ?>" altSrc="<?= asset('assets/template/admin/logo.png') ?>" onerror="this.src = $(this).attr('altSrc')" class="header-brand-img light-logo1" style="max-height: 30px;" alt="logo">
+                                <img src="<?= asset($setting['logo_landscape']) ?>" altSrc="<?= asset('assets/template/admin/logo.png') ?>" onerror="this.src = $(this).attr('altSrc')" class="header-brand-img desktop-logo" style="max-height: 50px;" alt="logo">
+                                <img src="<?= asset($setting['logo_white_landscape']) ?>" altSrc="<?= asset('assets/template/admin/logo.png') ?>" onerror="this.src = $(this).attr('altSrc')" class="header-brand-img light-logo1" style="max-height: 50px;" alt="logo">
                             </a>
                         </div>
                         <!-- LOGO -->

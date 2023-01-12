@@ -5,7 +5,7 @@
         </div>
         <p class="text-center mt-5">
             <!-- SIPANKAB CIAMIS<br> -->
-            <span class="fw-bold text-capitalize"> Sistem adminstrasi panwascam<br>kabupaten ciamis </span>
+            <span class="fw-bold text-capitalize">Aplikasi administrasi panwascam<br>kabupaten ciamis </span>
         </p>
         <div class="panel panel-primary">
             <div class="panel-body tabs-menu-body p-0">

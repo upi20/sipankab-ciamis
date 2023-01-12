@@ -4,16 +4,11 @@
 
 <div class="card">
     <div class="card-header d-md-flex flex-row justify-content-between">
-        <h3 class="card-title">Daftar Calon</h3>
+        <h3 class="card-title">Daftar Nnilai Calon</h3>
     </div>
     <div class="card-body" id="table"></div>
 </div>
 
-<style>
-    .select2-container {
-        width: 100% !important;
-    }
-</style>
 <!-- Modal -->
 <div class="modal fade" id="ModalMain" tabindex="-1" aria-labelledby="ModalMainLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
