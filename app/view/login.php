@@ -1,7 +1,7 @@
 <div class="container-login100">
     <div class="wrap-login100 p-6" style="border-radius: 24px; box-shadow: none">
         <div class="text-center">
-            <img src="<?= asset($setting['logo_white_landscape']) ?>" altSrc="<?= asset('assets/template/admin/logo.png') ?>" onerror="this.src = $(this).attr('altSrc')" class="header-brand-img" alt="Logo" id="logo" style="max-height: 90px!important;">
+            <img src="<?= asset($setting['logo_white_landscape']) ?>" altSrc="<?= asset('assets/template/admin/logo.png') ?>" onerror="this.src = $(this).attr('altSrc')" class="header-brand-img" alt="Logo" id="logo" style="max-height: 60px!important;">
         </div>
         <p class="text-center mt-5">
             <!-- SIPANKAB CIAMIS<br> -->

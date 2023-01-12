@@ -76,21 +76,19 @@
             <!-- app-Header -->
             <div class="header sticky hor-header">
                 <div class="main-container container">
-                    <div class="d-flex">
-                        <?php if (false) : ?>
-                            <div>
-                                <a aria-label="Hide Sidebar" class="app-sidebar__toggle" data-bs-toggle="sidebar" href="javascript:void(0)">
-                                </a>
-                            </div>
-                        <?php endif ?>
+                    <div class="d-flex flex-row  justify-content-between">
+                        <div>
+                            <a aria-label="Hide Sidebar" class="app-sidebar__toggle" data-bs-toggle="sidebar" href="javascript:void(0)">
+                            </a>
+                        </div>
                         <div>
                             <a class="logo-horizontal " href="<?= base_url() ?>">
                                 <!-- <a class="logo-horizontal " href="{{ url('/') }}">
                                 <img src="{{ asset(settings()->get(set_admin('app.foto_light_landscape_mode'))) }}" class="header-brand-img desktop-logo" alt="logo">
                                 <img src="{{ asset(settings()->get(set_admin('app.foto_dark_landscape_mode'))) }}" class="header-brand-img light-logo1" alt="logo">
                             </a> -->
-                                <img src="<?= asset($setting['logo_landscape']) ?>" altSrc="<?= asset('assets/template/admin/logo.png') ?>" onerror="this.src = $(this).attr('altSrc')" class="header-brand-img desktop-logo" style="max-height: 53px;" alt="logo">
-                                <img src="<?= asset($setting['logo_white_landscape']) ?>" altSrc="<?= asset('assets/template/admin/logo.png') ?>" onerror="this.src = $(this).attr('altSrc')" class="header-brand-img light-logo1" style="max-height: 53px;" alt="logo">
+                                <img src="<?= asset($setting['logo_landscape']) ?>" altSrc="<?= asset('assets/template/admin/logo.png') ?>" onerror="this.src = $(this).attr('altSrc')" class="header-brand-img desktop-logo" style="max-height: 30px;" alt="logo">
+                                <img src="<?= asset($setting['logo_white_landscape']) ?>" altSrc="<?= asset('assets/template/admin/logo.png') ?>" onerror="this.src = $(this).attr('altSrc')" class="header-brand-img light-logo1" style="max-height: 30px;" alt="logo">
                             </a>
                         </div>
                         <!-- LOGO -->
