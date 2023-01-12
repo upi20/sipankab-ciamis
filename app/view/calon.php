@@ -56,7 +56,7 @@
                     <th>No. Pend.</th>
                     <th>Nama</th>
                     <th>Jenis Kelamin</th>
-                    <th>Alamat</th>
+                    <th>Tanggal Lahir</th>
                     <th>No. Telepon</th>
                     <th>Action</th>
                 </tr>
@@ -112,9 +112,9 @@
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <label for="alamat" class="col-sm-2 col-form-label">Alamat</label>
+                        <label for="tanggal_lahir" class="col-sm-2 col-form-label">Tanggal Lahir</label>
                         <div class="col-sm-10">
-                            <textarea type="text" class="form-control" placeholder="Alamat" id="alamat" name="alamat"></textarea>
+                            <input type="date" class="form-control" placeholder="Tanggal Lahir" id="tanggal_lahir" name="tanggal_lahir">
                         </div>
                     </div>
                     <div class="row mb-3">
@@ -181,8 +181,8 @@
                     name: 'jenis_kelamin'
                 },
                 {
-                    data: 'alamat',
-                    name: 'alamat'
+                    data: 'tanggal_lahir',
+                    name: 'tanggal_lahir'
                 },
                 {
                     data: 'nomor_telepon',
@@ -309,7 +309,7 @@
                 $('#nomor_pendaftaran').val(calon.nomor_pendaftaran);
                 $('#nama').val(calon.nama);
                 $('#jenis_kelamin').val(calon.jenis_kelamin);
-                $('#alamat').val(calon.alamat);
+                $('#tanggal_lahir').val(calon.tanggal_lahir);
                 $('#nomor_telepon').val(calon.nomor_telepon);
 
                 form_is_edit = true;

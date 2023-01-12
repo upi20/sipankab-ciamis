@@ -1,19 +1,19 @@
 <?php
 class Calon extends Model
 {
-    public function create($kecamatan_id, $nomor_pendaftaran, $nama, $jenis_kelamin, $alamat, $nomor_telepon)
+    public function create($kecamatan_id, $nomor_pendaftaran, $nama, $jenis_kelamin, $tanggal_lahir, $nomor_telepon)
     {
         $kecamatan_id = value_sql_null($kecamatan_id);
         $nomor_pendaftaran = value_sql_null($nomor_pendaftaran);
         $nama = value_sql_null($nama);
         $jenis_kelamin = value_sql_null($jenis_kelamin);
-        $alamat = value_sql_null($alamat);
+        $tanggal_lahir = value_sql_null($tanggal_lahir);
         $nomor_telepon = value_sql_null($nomor_telepon);
 
         query_build("INSERT INTO `calon` 
-            ( `kecamatan_id`, `nomor_pendaftaran`, `nama`, `jenis_kelamin`, `alamat`, `nomor_telepon` ) 
+            ( `kecamatan_id`, `nomor_pendaftaran`, `nama`, `jenis_kelamin`, `tanggal_lahir`, `nomor_telepon` ) 
                 VALUES 
-            ( $kecamatan_id, $nomor_pendaftaran, $nama, $jenis_kelamin, $alamat, $nomor_telepon)");
+            ( $kecamatan_id, $nomor_pendaftaran, $nama, $jenis_kelamin, $tanggal_lahir, $nomor_telepon)");
         return [
             'code' => 200,
             'error' => false,
@@ -21,13 +21,13 @@ class Calon extends Model
         ];
     }
 
-    public function update($id, $kecamatan_id, $nomor_pendaftaran, $nama, $jenis_kelamin, $alamat, $nomor_telepon)
+    public function update($id, $kecamatan_id, $nomor_pendaftaran, $nama, $jenis_kelamin, $tanggal_lahir, $nomor_telepon)
     {
         $kecamatan_id = value_sql_null($kecamatan_id);
         $nomor_pendaftaran = value_sql_null($nomor_pendaftaran);
         $nama = value_sql_null($nama);
         $jenis_kelamin = value_sql_null($jenis_kelamin);
-        $alamat = value_sql_null($alamat);
+        $tanggal_lahir = value_sql_null($tanggal_lahir);
         $nomor_telepon = value_sql_null($nomor_telepon);
 
         query_build("UPDATE `calon` SET 
@@ -35,7 +35,7 @@ class Calon extends Model
             nomor_pendaftaran = $nomor_pendaftaran,
             nama = $nama,
             jenis_kelamin = $jenis_kelamin,
-            alamat = $alamat,
+            tanggal_lahir = $tanggal_lahir,
             nomor_telepon = $nomor_telepon
          WHERE id = '$id'");
         return [
@@ -68,7 +68,7 @@ class Calon extends Model
                     calon.nomor_pendaftaran like '%$search%' or 
                     calon.nama like '%$search%' or 
                     calon.jenis_kelamin like '%$search%' or 
-                    calon.alamat like '%$search%' or 
+                    calon.tanggal_lahir like '%$search%' or 
                     calon.nomor_telepon like '%$search%' or 
                     kecamatan.nama like '%$search%'
                 )

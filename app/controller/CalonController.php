@@ -27,10 +27,10 @@ class CalonController extends Controller
         $nomor_pendaftaran = post('nomor_pendaftaran');
         $nama = post('nama');
         $jenis_kelamin = post('jenis_kelamin');
-        $alamat = post('alamat');
+        $tanggal_lahir = post('tanggal_lahir');
         $nomor_telepon = post('nomor_telepon');
 
-        $result = $this->model->create($kecamatan_id, $nomor_pendaftaran, $nama, $jenis_kelamin, $alamat, $nomor_telepon);
+        $result = $this->model->create($kecamatan_id, $nomor_pendaftaran, $nama, $jenis_kelamin, $tanggal_lahir, $nomor_telepon);
         $code = $result['code'];
         $this->output_json($result, $code);
     }
@@ -42,9 +42,9 @@ class CalonController extends Controller
         $nomor_pendaftaran = post('nomor_pendaftaran');
         $nama = post('nama');
         $jenis_kelamin = post('jenis_kelamin');
-        $alamat = post('alamat');
+        $tanggal_lahir = post('tanggal_lahir');
         $nomor_telepon = post('nomor_telepon');
-        $result = $this->model->update($id, $kecamatan_id, $nomor_pendaftaran, $nama, $jenis_kelamin, $alamat, $nomor_telepon);
+        $result = $this->model->update($id, $kecamatan_id, $nomor_pendaftaran, $nama, $jenis_kelamin, $tanggal_lahir, $nomor_telepon);
         $code = $result['code'];
         $this->output_json($result, $code);
     }

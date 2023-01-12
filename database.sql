@@ -1,19 +1,18 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.7
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Jan 11, 2023 at 04:37 PM
--- Server version: 10.5.18-MariaDB-cll-lve
--- PHP Version: 7.4.30
+-- Host: 127.0.0.1
+-- Generation Time: Jan 12, 2023 at 07:59 AM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.1.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
 --
--- Database: `satu9351_sipankab`
+-- Database: `sipankab`
 --
 
 -- --------------------------------------------------------
@@ -48,7 +47,7 @@ CREATE TABLE `calon` (
   `nama` varchar(255) DEFAULT NULL,
   `nomor_pendaftaran` varchar(255) DEFAULT NULL,
   `jenis_kelamin` varchar(255) DEFAULT NULL,
-  `alamat` text DEFAULT NULL,
+  `tanggal_lahir` date DEFAULT NULL,
   `nomor_telepon` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -56,8 +55,8 @@ CREATE TABLE `calon` (
 -- Dumping data for table `calon`
 --
 
-INSERT INTO `calon` (`id`, `kecamatan_id`, `nama`, `nomor_pendaftaran`, `jenis_kelamin`, `alamat`, `nomor_telepon`) VALUES
-(2, 2, 'NANDANG SURYANA ', 'KABCMS0001', 'LAKI-LAKI', NULL, '081221414 051'),
+INSERT INTO `calon` (`id`, `kecamatan_id`, `nama`, `nomor_pendaftaran`, `jenis_kelamin`, `tanggal_lahir`, `nomor_telepon`) VALUES
+(2, 2, 'NANDANG SURYANA ', 'KABCMS0001', 'LAKI-LAKI', '2023-01-12', '081221414 051'),
 (3, 3, 'MUHAMAD HAESUNI', 'KABCMS0002', 'LAKI-LAKI', NULL, '081321442501'),
 (4, 28, 'YAYAN KAMALUDIN', 'KABCMS0003', 'LAKI-LAKI', NULL, '081323209003'),
 (5, 4, 'HENDRA GUNAWAN', 'KABCMS0004', 'LAKI-LAKI', NULL, '085221536532'),
@@ -95,6 +94,16 @@ CREATE TABLE `calon_tahapan_nilai` (
   `tahapan_id` int(11) DEFAULT NULL,
   `tahapan_nilai_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `calon_tahapan_nilai`
+--
+
+INSERT INTO `calon_tahapan_nilai` (`id`, `calon_id`, `tahapan_id`, `tahapan_nilai_id`) VALUES
+(1, 19, 1, 3),
+(2, 2, 1, 3),
+(3, 2, 2, 5),
+(4, 2, 3, 8);
 
 -- --------------------------------------------------------
 
@@ -251,13 +260,13 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `calon`
 --
 ALTER TABLE `calon`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `calon_tahapan_nilai`
 --
 ALTER TABLE `calon_tahapan_nilai`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `kecamatan`
@@ -269,13 +278,13 @@ ALTER TABLE `kecamatan`
 -- AUTO_INCREMENT for table `tahapan`
 --
 ALTER TABLE `tahapan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tahapan_nilai`
 --
 ALTER TABLE `tahapan_nilai`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Constraints for dumped tables
@@ -291,13 +300,13 @@ ALTER TABLE `calon`
 -- Constraints for table `calon_tahapan_nilai`
 --
 ALTER TABLE `calon_tahapan_nilai`
-  ADD CONSTRAINT `calon_tahapan_nilai_ibfk_1` FOREIGN KEY (`calon_id`) REFERENCES `calon` (`id`),
-  ADD CONSTRAINT `calon_tahapan_nilai_ibfk_2` FOREIGN KEY (`tahapan_id`) REFERENCES `tahapan` (`id`),
-  ADD CONSTRAINT `calon_tahapan_nilai_ibfk_3` FOREIGN KEY (`tahapan_nilai_id`) REFERENCES `tahapan_nilai` (`id`);
+  ADD CONSTRAINT `calon_tahapan_nilai_ibfk_1` FOREIGN KEY (`calon_id`) REFERENCES `calon` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `calon_tahapan_nilai_ibfk_2` FOREIGN KEY (`tahapan_id`) REFERENCES `tahapan` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `calon_tahapan_nilai_ibfk_3` FOREIGN KEY (`tahapan_nilai_id`) REFERENCES `tahapan_nilai` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `tahapan_nilai`
 --
 ALTER TABLE `tahapan_nilai`
-  ADD CONSTRAINT `tahapan_nilai_ibfk_1` FOREIGN KEY (`tahapan_id`) REFERENCES `tahapan` (`id`);
+  ADD CONSTRAINT `tahapan_nilai_ibfk_1` FOREIGN KEY (`tahapan_id`) REFERENCES `tahapan` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
