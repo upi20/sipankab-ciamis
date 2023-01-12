@@ -68,6 +68,13 @@ route_post("$route.update", $controller, 'update');
 route_post("$route.delete", $controller, 'delete');
 route_get("$route.find", $controller, 'find');
 
+// calon nilai
+$route = 'calon_nilai';
+$controller = 'CalonNilaiController';
+route_get($route, $controller, 'index');
+route_get("$route.calon_list", $controller, 'calon_list');
+route_get("$route.nilai", $controller, 'calon_nilai');
+route_post("$route.simpan", $controller, 'simpan');
 
 // jika rutenya tidak terdaftar
 $route = '';

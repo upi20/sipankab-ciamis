@@ -202,21 +202,12 @@
                                 </a>
                             </li>
 
-                            <!-- 
                             <li class="slide">
-                                <a class="side-menu__item <?= route_active_class('display', 'active') ?>" data-bs-toggle="slide" href="<?= route('display') ?>">
-                                    <i class="side-menu__icon fas fa-tv"></i>
-                                    <span class="side-menu__label">Display Antrian</span>
+                                <a class="side-menu__item <?= route_active_class('calon_nilai', 'active') ?>" data-bs-toggle="slide" href="<?= route('calon_nilai') ?>">
+                                    <i class="side-menu__icon fas fa-user-edit"></i>
+                                    <span class="side-menu__label">Calon Nilai</span>
                                 </a>
                             </li>
-
-
-                            <li class="slide">
-                                <a class="side-menu__item <?= route_active_class('catat_rm', 'active') ?>" data-bs-toggle="slide" href="<?= route('catat_rm') ?>">
-                                    <i class="side-menu__icon fas fa-pencil-alt"></i>
-                                    <span class="side-menu__label">Catat RM Pasien</span>
-                                </a>
-                            </li> -->
 
                             <li class="slide">
                                 <a class="side-menu__item" data-bs-toggle="slide" href="<?= route('login.logout') ?>">
